@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 
 const VideoDetail = ({video}) => {
-    const videoID = video.id.videoId;
+    if (!video) {
+        return <div>Loading...</div>;
+    }
+
+    const videoId = video.id.videoId;
     const url = `https://www.youtube.com/embed/${videoId}`;
 
     return (
@@ -14,5 +18,7 @@ const VideoDetail = ({video}) => {
                 <div>{video.snippet.description}</div>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default VideoDetail;
